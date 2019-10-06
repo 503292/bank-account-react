@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import css from './Balance.module.css';
 
 const Balance = ({ balance, income, expenses }) => (
-  <section className={css.balance}>
-    <span role="img" aria-label="money+">
-      ⬆️ {income} $
+  <section className={css.balanceSec}>
+    <span className={css.income} role="img" aria-label="money+">
+      <span>⬆</span> {income} $
     </span>
-    <span role="img" aria-label="money-">
-      ⬇️{expenses} $
+    <span className={css.expenses} role="img" aria-label="money-">
+      <span>⬇</span>
+      {expenses} $
     </span>
-    <span>Balance: {balance}</span>
+    <span className={css.balance}>Balance: {balance} $</span>
   </section>
 );
 

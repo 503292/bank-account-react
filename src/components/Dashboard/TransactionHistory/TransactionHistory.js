@@ -5,14 +5,14 @@ import css from './TransactionHistory.module.css';
 const TransactionHistory = ({ transactions }) => {
   return (
     <table className={css.history}>
-      <thead>
+      <thead className={css.head}>
         <tr>
           <th>Transaction</th>
           <th>Amount</th>
           <th>Date</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className={css.body}>
         {/* <tr>
           <td>Deposit</td>
           <td>200$</td>

@@ -4,13 +4,31 @@ import css from './Controls.module.css';
 
 const Controls = ({ handleChange, handleMinus, handlePlus }) => (
   <section className={css.controls}>
-    <input type="number" name="amount" onChange={handleChange} />
-    <button type="button" name="Deposit" onClick={handlePlus}>
-      Deposit
-    </button>
-    <button type="button" name="Withdraw" onClick={handleMinus}>
-      Withdraw
-    </button>
+    <div className={css.wrapIntBut}>
+      <input
+        className={css.amount}
+        type="number"
+        name="amount"
+        onChange={handleChange}
+        placeholder=" enter sum ..."
+      />
+      <button
+        className={`${css.depositBtn} ${css.btn}`}
+        type="button"
+        name="Deposit"
+        onClick={handlePlus}
+      >
+        Deposit
+      </button>
+      <button
+        className={`${css.withdrawBtn} ${css.btn}`}
+        type="button"
+        name="Withdraw"
+        onClick={handleMinus}
+      >
+        Withdraw
+      </button>
+    </div>
   </section>
 );
 Controls.propTypes = {
