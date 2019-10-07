@@ -22,13 +22,17 @@ export default class Dashboard extends Component {
   };
 
   handleChange = e => {
+    if (e.target.value === null) {
+      toast.error(this.messages.inputNumber);
+      return;
+    }
     this.setState({ amount: e.target.value });
   };
 
   handlePlus = e => {
     const { name } = e.target;
     const { balance, amount } = this.state;
-    if (amount === '0' || amount === '') {
+    if (amount === '' || amount === '') {
       toast.error(this.messages.inputNumber);
       return;
     }
@@ -48,6 +52,7 @@ export default class Dashboard extends Component {
         transactions: [...state.transactions, newTransaction],
       }));
     }
+    this.reset();
   };
 
   handleMinus = e => {
@@ -58,7 +63,7 @@ export default class Dashboard extends Component {
       return;
     }
 
-    if (amount === '0' || amount === '') {
+    if (amount === null || amount === '') {
       toast.error(this.messages.inputNumber);
       return;
     }
@@ -78,14 +83,20 @@ export default class Dashboard extends Component {
         transactions: [...state.transactions, newTransaction],
       }));
     }
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ amount: '' });
   };
 
   render() {
-    const { transactions, balance, income, expenses } = this.state;
+    const { transactions, balance, income, expenses, amount } = this.state;
     return (
       <div className={css.dashboard}>
         <Controls
           handleChange={this.handleChange}
+          value={amount}
           handlePlus={this.handlePlus}
           handleMinus={this.handleMinus}
         />
