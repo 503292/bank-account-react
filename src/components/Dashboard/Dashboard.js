@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default class Dashboard extends Component {
   state = {
-    balance: 5000,
+    balance: 0,
     amount: '',
     transactions: [],
     income: 0,
